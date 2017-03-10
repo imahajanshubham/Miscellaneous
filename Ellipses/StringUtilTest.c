@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
-#include "StringUtils.h"
+#include "string.h"
+#include "Utils.h"
 
 #define MAXLENGTH 100
 char filename[] = "C:\\Users\\devsa\\Desktop\\Study !\\Programs\\Miscellaneous\\Ellipses\\TestSuite.txt";
