@@ -5,32 +5,30 @@
 #define MAXLENGTH 100
 char filename[] = "C:\\Users\\devsa\\Desktop\\Study !\\Programs\\Miscellaneous\\Ellipses\\TestSuite.txt";
 
-void readTestSuite(char * inputbuffer, int * maxlength, int * last_n)
+void readInputFromCmd(const char * argv[], int argc, char * inputbuffer, int * maxlength, int * last_n)
 {
-	FILE *p;
-	int index = 0;
-	char tempstr[MAXLENGTH], c;
+	int index = 1;
 
-	p = fopen( filename ,"r");
+	if( ( strcmp( argv[index] , "-maxlength" ) ) == 0 )
+		*maxlength = atoi( argv[index + 1] );
 
-	fscanf( p , "%[^\n]" , inputbuffer );		fseek( p , 2L , SEEK_CUR );
+	index += 2;
 
-	fscanf( p , "%[^\n]" , tempstr );			fseek( p , 2L , SEEK_CUR );
+	if( ( strcmp( argv[index] , "-lastnchars" )) == 0 )
+		*last_n = atoi( argv[index + 1] );
 
-	*maxlength = atoi( tempstr );
+	index += 2;
 
-	fscanf( p , "%[^\n]" , tempstr );			
-
-	*last_n = atoi( tempstr );
+	strcpy( inputbuffer , argv[index] );
 }
 
-int main()
+int main(int argc, char const * argv[])
 {
 	char inputbuffer[MAXLENGTH];
 	char outputbuffer[MAXLENGTH];
 	int maxlength, last_n;
 
-	readTestSuite( inputbuffer , &maxlength , &last_n );
+	readInputFromCmd( argv , argc , inputbuffer , &maxlength , &last_n );
 
 	if( ! (squeezeWithEllipses( inputbuffer , outputbuffer , maxlength , last_n )) )
 
