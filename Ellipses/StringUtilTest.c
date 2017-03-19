@@ -1,12 +1,11 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include "Utils.h"
+#include "utils.h"
 
 #define MAXLENGTH 100
-char filename[] = "C:\\Users\\devsa\\Desktop\\Study !\\Programs\\Miscellaneous\\Ellipses\\TestSuite.txt";
 
-void readInputFromCmd(const char * argv[], int argc, char * inputbuffer, int * maxlength, int * last_n)
+void readInputFromCmd(int argc, const char * argv[], char * inputbuffer, int * maxlength, int * last_n)
 {
 	int index = 1;
 
@@ -29,7 +28,7 @@ int main(int argc, char const * argv[])
 	char outputbuffer[MAXLENGTH];
 	int maxlength, last_n;
 
-	readInputFromCmd( argv , argc , inputbuffer , &maxlength , &last_n );
+	readInputFromCmd( argc , argv , inputbuffer , &maxlength , &last_n );
 
 	if( ! (squeezeWithEllipses( inputbuffer , outputbuffer , maxlength , last_n )) )
 
