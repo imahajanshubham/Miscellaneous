@@ -2,7 +2,7 @@
 
 function startScript()
 {
-				   # Test Name #
+			   # Test Name #
 	executeTests "TestForEllipses"
 
 	read
