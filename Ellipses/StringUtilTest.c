@@ -35,5 +35,8 @@ int main(int argc, char const * argv[])
 
 		printf("%s\n", outputbuffer);
 
+	else
+		printf("Error!");
+
 	return 0;
 }
